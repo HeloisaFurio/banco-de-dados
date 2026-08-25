@@ -60,3 +60,33 @@ VALUES ('1', '333.333.333-33', '40')
 INSERT INTO `projEmp` (`codProj`, `cpfEmpregado`, `hrTrab`)
 VALUES ('1', '444.444.444-44', '20')
 --9
+INSERT INTO `projEmp` (`codProj`, `cpfEmpregado`, `hrTrab`)
+VALUES ('2', '333.333.333-33', '35')
+--10
+INSERT INTO `cliente` (`cpf`, `nome`, `telefone`)
+VALUES ('Pedro Gomes', '555.555.555-55', '48999887766')
+--11
+INSERT INTO `empregado` (`cpf`, `nome`, `cargo`)
+VALUES ('Lucas Andrade', '666.666.666-66', 'Desenvolvedor Backend')
+--12
+INSERT INTO `projeto` (`nome`, `descricao`, `preco`, `dtFim`, `dtEstima`, `dtSolicitacao`, `cpfGerente`, `cpfCliente`)
+VALUES ('Site Institucional', 'Página para empresa local', '5000.00', '2025-11-01', '2025-10-25', '2025-09-20', '444.444.444-44', '555.555.555-55')
+--13
+INSERT INTO `projEmp` (`codProj`, `cpfEmpregado`, `hrTrab`)
+VALUES ('3', '666.666.666-66', '50')
+--14
+INSERT INTO `cliente` (`cpf`, `nome`, `telefone`)
+VALUES ('Fernanda Lima', '777.777.777-77', '48991231231')
+--15
+INSERT INTO `projeto` (`nome`, `descricao`, `preco`, `dtFim`, `dtEstima`, `dtSolicitacao`, `cpfGerente`, `cpfCliente`)
+VALUES ('Controle de Estoque', 'Sistema para loja de roupas', '8000.00', '2025-12-20', '2025-12-05', '2025-09-25', '444.444.444-44', '777.777.777-77')
+-- Atividade opcional:
+--1
+-- SELECT `c.nome AS Cliente`,
+--  `p.nome` AS `Projeto`,
+--  `p.preco` AS `Valor`,
+--  `p.dtSolicitacao` AS `Data_Solicitacao`,
+--  `p.dtFim` AS `Data_Fim`
+-- FROM `projeto` p
+-- JOIN cliente c ON p.cpfCliente = c.cpf
+-- ORDER BY c.nome, p.dtSolicitacao;
