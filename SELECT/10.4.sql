@@ -41,3 +41,6 @@ SELECT * FROM `Consultas` ORDER BY `idConsulta` LIMIT 3;
 
 --15 (pag1)
 SELECT * FROM `Tutores` ORDER BY `idTutor` LIMIT 0,2;
+
+--16(pag2)
+SELECT * FROM `Tutores` ORDER BY `idTutor` LIMIT 3,4;
