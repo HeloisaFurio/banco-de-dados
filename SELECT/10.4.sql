@@ -43,4 +43,16 @@ SELECT * FROM `Consultas` ORDER BY `idConsulta` LIMIT 3;
 SELECT * FROM `Tutores` ORDER BY `idTutor` LIMIT 0,2;
 
 --16(pag2)
-SELECT * FROM `Tutores` ORDER BY `idTutor` LIMIT 3,4;
+SELECT * FROM `Tutores` ORDER BY `idTutor` LIMIT 2,2;
+
+--17
+SELECT `nome` AS 'Animal Mais Pesado', `peso_kg` AS 'Peso (kg)' FROM `Animais` ORDER BY `peso_kg` DESC LIMIT 1;
+
+--18
+SELECT `motivo` AS 'Motivo', `diagnostico` AS 'Diagnóstico', `custo` AS 'Valor' FROM `Consultas` ORDER BY `custo` DESC LIMIT 1;
+
+--19
+SELECT `nome` AS 'Nome', `especie` AS 'Espécie', `dtNascimento` AS 'Nascimento' FROM `Animais` ORDER BY `dtNascimento` DESC LIMIT 3;
+
+--20
+SELECT `dtConsulta` AS 'Data', `motivo` AS 'Motivo' FROM `consultas` ORDER BY `dtConsulta` LIMIT 2;
