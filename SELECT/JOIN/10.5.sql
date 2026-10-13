@@ -63,6 +63,7 @@ INSERT INTO `produtos` (`nome`, `fabricante`, `preco`, `estoque`, `idCategoria_f
 -- 7 - Listar TODAS as Categorias: Mostre o nome de todas as categorias e, ao lado, o nome dos produtos que pertencem a ela. Se uma categoria não tiver produtos, ela ainda deve aparecer.
 -- 8 - Encontrar Categorias VAZIAS: Usando o RIGHT JOIN, mostre o nome apenas das categorias que não possuem nenhum produto cadastrado. (Dica: No script, todas as categorias têm produtos, mas se você inserir uma categoria nova, como 'Drones', essa consulta a encontraria).
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+--INNER JOIN-------------
 --1
 SELECT 
     `P`.`nome` AS 'Produto',
@@ -71,11 +72,77 @@ FROM
     `produtos` AS `P`
 INNER JOIN
     `categorias` AS `C` ON `P`.`idCategoria_fk` = `C`.`idCategoria`;
+
 --2
 SELECT
     `P`.`nome` AS 'Nome',
     `P`.`preco` AS 'Preço'
 FROM
     `produtos` AS `P`
-INNER JOIN
-    `categorias` AS `C`
+INNER JOIN 
+    `categorias` AS `C` ON `P`.`idCategoria_fk` = `C`.`idCategoria`
+WHERE 
+    `C`.`idCategoria` = 3;
+
+--3
+SELECT
+    `P`.`nome` AS 'Nome',
+    `P`.`fabricante` AS 'Fabricante'
+FROM
+    `produtos` AS `P`
+INNER JOIN 
+    `categorias` AS `C` ON `P`.`idCategoria_fk` = `C`.`idCategoria`
+WHERE 
+    `C`.`idCategoria` = 1;
+
+--4
+SELECT
+    `P`.`nome` AS 'Nome',
+    `P`.`preco` AS 'Preço',
+    `C`.`nome` AS 'Categoria'
+FROM
+    `produtos` AS `P`
+INNER JOIN 
+    `categorias` AS `C` ON `P`.`idCategoria_fk` = `C`.`idCategoria`
+WHERE 
+    `P`.`preco` >= 2000;
+
+--LEFT JOIN------------------
+--5
+SELECT 
+    `P`.`nome` AS 'Produto',
+    `C`.`nome` AS 'Categoria'
+FROM 
+    `produtos` AS `P`
+LEFT JOIN 
+    `categorias` AS `C` ON `P`.`idCategoria_fk` = `C`.`idCategoria`;
+
+--6
+SELECT 
+    `P`.`nome` AS 'Produto'
+FROM 
+    `produtos` AS `P`
+LEFT JOIN 
+    `categorias` AS `C` ON `P`.`idCategoria_fk` = `C`.`idCategoria`
+WHERE 
+    `C`.`idCategoria` IS NULL;
+
+--RIGHT JOIN------------------
+--7
+SELECT 
+    `C`.`nome` AS 'Categoria',
+    `P`.`nome` AS 'Produto'
+FROM 
+    `produtos` AS `P`
+RIGHT JOIN 
+    `categorias` AS `C` ON `P`.`idCategoria_fk` = `C`.`idCategoria`;
+
+--8
+SELECT 
+    `C`.`nome` AS 'Categoria'
+FROM 
+    `produtos` AS `P`
+RIGHT JOIN 
+    `categorias` AS `C` ON `P`.`idCategoria_fk` = `C`.`idCategoria`
+WHERE 
+    `P`.`idCategoria_fk` IS NULL;
